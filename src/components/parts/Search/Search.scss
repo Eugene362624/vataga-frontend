@@ -1,0 +1,29 @@
+.search {
+    display: flex;
+    align-items: center;
+    background-color: #656565;
+    border-radius: 30px;
+    padding: .05rem;
+    
+.search-form {
+    width: 0px;
+    height: 40px;
+    border-radius: 2.5vh 0 0 2.5vh;
+    background-color: #656565;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    line-height: 1rem;
+    transition: width .2s ease;
+    z-index: -1;
+  }
+}
+
+.search:hover {
+    .search-form {
+        width: 300px !important;
+        padding: .5rem;
+        z-index: 2;
+        transition: width .2s ease;
+    }
+}

@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom'
+import Login from './components/pages/Login/'
+import Index from './components/pages/Index/Index.jsx'
+import RegisterPage from './components/pages/Register/'
+import FreeHelp from './components/pages/FreeHelp'
+import UserProfile from './components/pages/UserProfile';
+import News from './components/pages/News';
+import FreeQuestion from './components/pages/FreeQuestion/FreeQuestion';
+import Settings from './components/pages/Settings/Settings';
+import { createBrowserHistory } from "history";
+import { useSelector } from 'react-redux';
 
-function App() {
+function App(props) {
+  
+  const customHistory = createBrowserHistory();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={customHistory}>
+        <Switch>
+          <Route path="/login" props={customHistory} component={Login}  />
+          <Route exact path='/' component={Index} />
+          <Route path='/register' component={RegisterPage} />
+          <Route path='/free-help' exact component={FreeHelp} />
+          <Route path='/profile/:id' props={customHistory} component={UserProfile} />
+          <Route path='/news' component={News} />
+          <Route path='/free-help/question/:id' component={FreeQuestion} />
+          <Route path='/settings' component={Settings}/>
+        </Switch>
+    </Router>
   );
 }
 

@@ -1,0 +1,42 @@
+.settings {
+   .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+       background-color: #656565;
+   }
+   .content {
+       flex-direction: column;
+       padding-bottom: 1rem;
+       width: 100%;
+       hr {
+           border: 1px solid #656565;
+           margin: 1rem 0;
+       }
+   }
+   .settings-left, .settings-right {
+       width: 50%;
+       height: 100%;
+   }
+   .settings-left {
+       padding-right: 1rem;
+   }
+   
+   .settings-right {
+       border-left: 1px solid #656565;
+       padding: 0 1rem;
+   }
+   #line {
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between;
+       div {
+           display: flex;
+           align-items: center;
+           span {
+               margin-left: 1rem;
+           }
+       }
+   }
+   #line > span:first-child {
+    max-width: 70%;
+   }
+}
