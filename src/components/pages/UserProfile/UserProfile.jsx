@@ -24,7 +24,7 @@ function UserProfile(props) {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/users/'+props.match.params.id)
+        axios.get('https://stoic-bassi-dae425.netlify.app/users/'+props.match.params.id)
         .then(res => {
             setTimeout(() => setData(res.data), 100)
             
