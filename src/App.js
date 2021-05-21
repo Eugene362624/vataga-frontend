@@ -8,8 +8,11 @@ import UserProfile from './components/pages/UserProfile';
 import News from './components/pages/News';
 import FreeQuestion from './components/pages/FreeQuestion/FreeQuestion';
 import Settings from './components/pages/Settings/Settings';
+import PaidHelp from './components/pages/PaidHelp/index'
 import { createBrowserHistory } from "history";
 import { useSelector } from 'react-redux';
+import FleaMarket from './components/pages/FleaMarket';
+import Library from './components/pages/Library/Library';
 
 function App(props) {
   
@@ -24,6 +27,9 @@ function App(props) {
           <Route path='/profile/:id' props={customHistory} component={UserProfile} />
           <Route path='/news' component={News} />
           <Route path='/free-help/question/:id' component={FreeQuestion} />
+          <Route path="/paid-help" exact component={PaidHelp}/>
+          <Route path="/flea-market" exact component={FleaMarket}/>
+          <Route path="/library" exact component={Library}/>
           <Route path='/settings' component={Settings}/>
         </Switch>
     </Router>

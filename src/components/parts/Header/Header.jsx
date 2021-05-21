@@ -18,6 +18,7 @@ const Header = (props) => {
 
     const userLogin = useSelector(state => state.userLogin)
   const {userInfo} = userLogin
+  console.log(userInfo)
     const [notifications, setNotifications ] = useState(false)
 
     return (
@@ -39,7 +40,7 @@ const Header = (props) => {
                     </IconButton>
                     {
                     userInfo && props.props && userInfo.id == props.props.match.params.id ?
-                    <Button onClick={() => userLogout()}>
+                    <Button id="isLoged" onClick={() => userLogout()}>
                         Выйти
                     </Button>
                     :

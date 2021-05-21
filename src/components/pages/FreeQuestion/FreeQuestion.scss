@@ -10,6 +10,7 @@
         justify-content: flex-start;
         flex-direction: column;
         flex-wrap: nowrap;
+        width: calc(80% - 280px);
     }
     .question-answers {
         width: 100%;
@@ -88,7 +89,7 @@
         }
     }
     .answer {
-        width: 70%;
+        width: 100%;
         background: #656565;
         border-radius: 10px;
         display: flex;
@@ -126,7 +127,7 @@
         flex-wrap: wrap;
     }
     .add-answer {
-        width: 70%;
+        width: 100%;
         margin-top: 1rem;
         textarea { 
             margin-top: 1rem;
@@ -146,5 +147,41 @@
             }
         }
 
+    }
+    .right-sidebar {
+        height: calc(100vh - 120px);
+        background: #505050;
+        width: calc(20%);
+        overflow-y: auto;
+        .info-about-user, .info-about-subscribe, .info-about-challenges {
+            background: #656565;
+            width: auto;
+            margin: 1rem;
+            padding: 1rem;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .info-about-subscribe {
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            background: #656565;
+            .MuiButton-root {
+                background: #505050;
+            }
+            button {
+                margin: 1rem auto 0 auto;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: .3rem;
+            }
+            h3 {
+                margin-top: .3rem;
+            }
+        }
+        .info-about-challenges {
+            height: 200px;
+        }
     }
 }

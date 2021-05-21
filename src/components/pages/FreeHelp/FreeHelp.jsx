@@ -29,7 +29,7 @@ function FreeHelp(props) {
     const questionList = useSelector(state => state.questionList)
     const { questions, count, loading, error, tags } = questionList
     const dispatch = useDispatch()
-
+    
     //всего вопросов
     const countPages = Math.ceil(count / 10)
 
@@ -96,9 +96,9 @@ function FreeHelp(props) {
                         <p>Сортировать:</p>
                         <FormControl className="form-control">
                             <InputLabel htmlFor="grouped-select">Выберите</InputLabel>
-                            <Select onChange={e => sortSelectHandler(e.target.value)} defaultValue="" id="grouped-select">
+                            <Select defaultValue={values.sort} onChange={e => sortSelectHandler(e.target.value)} id="grouped-select">
                                 <MenuItem value="">
-                                    <em>-- -- --</em>
+                                    <em>По умолчанию</em>
                                 </MenuItem>
                                 <ListSubheader>По новизне</ListSubheader>
                                 <MenuItem value={1}>Новые</MenuItem>
@@ -137,27 +137,28 @@ function FreeHelp(props) {
                                 <Skeleton style={{width: "100%", height: "100px"}} animation="wave"/>
                                 <Skeleton style={{width: "100%", height: "100px"}} animation="wave"/>
                             </React.Fragment> :
+                            questions ? 
                         <div className="question-group">
                             {questions.map((e, i) => {
                                 return <Link key={i} to={`/free-help/question/${e._id}`}>
                                     <div className="question">
                                         <div className="question-info">
-                                            <span><small>Ответов: {e.answers.length}</small></span>
-                                            <span><small>Качество <br></br> вопроса: {e.rate}</small></span>
-                                            <span><small>Подписчиков: {e.subscribers.length}</small></span>
+                                            <small>Ответов: {e.answers}</small>
+                                            <small>Качество <br></br> вопроса: {e.rate}</small>
+                                            <small>Подписчиков: {e.subscribers}</small>
                                         </div>
                                         <div className="question-content">
                                             <div className="question-content-upper">
                                                 <p>{e.title} - {e.index}</p>
                                                 {e.tags.map((e, i) => { return <Link><Button key={i}>{e}</Button></Link> })}
                                             </div>
-                                            <span><small>Задан: {e.timestamp} пользователем <Link to="/"><LinkUI>{e.creator}</LinkUI></Link></small></span>
+                                            <small>Задан: {e.timestamp} пользователем <Link to="/"><LinkUI>{e.creator}</LinkUI></Link></small>
                                         </div>
                                     </div>
                                 </Link>
                             })}
                         
-                        </div>
+                        </div> : ''
                         }
                         {loading || error ?
                         <div style={{display: 'flex', justifyContent: 'center', width:"100%"}}>

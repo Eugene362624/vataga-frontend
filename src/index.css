@@ -49,9 +49,8 @@ button {
   border: none;
 }
 
-a#isLoged {
-  width: 120px;
-  margin-right: 1rem;
+#isLoged {
+  margin-right: 3rem;
 }
 
 .auth-button {

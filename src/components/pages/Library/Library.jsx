@@ -4,19 +4,19 @@ import Footer from '../../parts/Footer/Footer'
 import Menu from '../../parts/Menu/Menu'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import './News.scss'
+import './Library.scss'
 import axios from 'axios';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-const News = (props) => {
+const Library = (props) => {
 
     return (
-        <div className="news-page">
+        <div className="library-page">
         <Header/>
         <div className="main">
           <Menu/>
           <div className="content">
-            <span>Coming Soon...</span> 
+            <span>Coming Soon...</span>
             <Skeleton animation="wave"><h1>loadingloading</h1></Skeleton>
           </div>
         </div>
@@ -26,4 +26,4 @@ const News = (props) => {
     )
 }
 
-export default News
+export default Library

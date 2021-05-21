@@ -4,14 +4,14 @@ import Footer from '../../parts/Footer/Footer'
 import Menu from '../../parts/Menu/Menu'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import './News.scss'
+import './FleaMarket.scss'
 import axios from 'axios';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-const News = (props) => {
+const FleaMarket = (props) => {
 
     return (
-        <div className="news-page">
+        <div className="flea-market">
         <Header/>
         <div className="main">
           <Menu/>
@@ -26,4 +26,4 @@ const News = (props) => {
     )
 }
 
-export default News
+export default FleaMarket

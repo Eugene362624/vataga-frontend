@@ -66,7 +66,7 @@ function Copyright() {
 }
 
   const userRegister = () => {
-    axios.post('https://stoic-bassi-dae425.netlify.app/register', {
+    axios.post('/register', {
       userName,
       userSurname,
       userPassword,

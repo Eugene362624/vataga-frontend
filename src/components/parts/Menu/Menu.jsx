@@ -1,8 +1,24 @@
 import { Button } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect } from 'react'
+import './Menu.scss'
 import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
+import Cookie from 'js-cookie'
+import { useDispatch, useSelector } from 'react-redux'
+import {loginUser, fullUserInfo} from '../../../actions/userActions'
+import Skeleton from '@material-ui/lab/Skeleton';
+
 
 const Menu = () => {
+    const userInfo = JSON.parse(Cookie.get('userInfo') || null)
+
+    const userFullInfo = useSelector(state => state.userFullInfo)
+    const { user, loading, error } = userFullInfo
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fullUserInfo(userInfo ? userInfo.id : 0))
+    }, [])
+    console.log(user)
     return (
         <menu>
             <nav>
@@ -29,17 +45,16 @@ const Menu = () => {
                     </NavLink>
                     
                     
-                    <NavLink activeClassName='activeLink' to="/users/profile/1">
+                    {userInfo ? <NavLink activeClassName='activeLink' to={`/profile/${userInfo ? userInfo.id : 0}`}>
                     <Button><li>Профиль</li></Button>
-                    </NavLink>
+                    </NavLink> : null}
                     
                     
-                    <NavLink activeClassName='activeLink' to="/settings">
+                    {userInfo ? <NavLink activeClassName='activeLink' to="/settings">
                     <Button><li>Настройки</li></Button>
                     </NavLink>
-                    
-                    
-                </ul>
+                    : null}
+                    </ul>
             </nav>
         </menu>
     )
