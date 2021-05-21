@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://vataga-backend-vm63c.ondigitalocean.app/",
+  "proxy": "https://vataga-backend-vm63c.ondigitalocean.app",
   "private": true,
   "dependencies": {
     "@edsdk/n1ed-react": "^1.0.11",
